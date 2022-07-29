@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 
-class FrameView(
+class FrameView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defaultAttrs:Int = 0
@@ -17,11 +17,14 @@ class FrameView(
         color = Color.WHITE
         style = Paint.Style.FILL
         isAntiAlias = true
-        strokeWidth = 20f
+        strokeWidth = 25f
     }
 
     override fun onDraw(canvas: Canvas) {
         canvas.apply {
+
+            val long = (0.09 * height).toFloat()
+
             //left up corner
             val leftUPcornerSTARTx = 0.toFloat()
             val leftUPcornerSTARTy = 0.toFloat()
@@ -50,21 +53,18 @@ class FrameView(
             val rightDOWNdirectionSTOPx = (width).toFloat()
             val rightDOWNdirectionSTOPy = (height).toFloat()
 
-            val minus =
-
-            drawColor(Color.BLACK)
             //left up frame
-            drawLine(leftUPcornerSTARTx, leftUPcornerSTARTy, leftUPdirectionSTOPx + 50, leftUPdirectionSTOPy, painter)
-            drawLine(leftUPcornerSTARTx, leftUPcornerSTARTy, leftUPdirectionSTOPx, leftUPdirectionSTOPx + 50, painter)
+            drawLine(leftUPcornerSTARTx, leftUPcornerSTARTy, leftUPdirectionSTOPx + long, leftUPdirectionSTOPy, painter)
+            drawLine(leftUPcornerSTARTx, leftUPcornerSTARTy, leftUPdirectionSTOPx, leftUPdirectionSTOPx + long, painter)
             //right up frame
-            drawLine(rightUPcornerSTARTx, rightUPcornerSTARTy, rightUPdirectionSTOPx - 50, rightUPdirectionSTOPy, painter)
-            drawLine(rightUPcornerSTARTx, rightUPcornerSTARTy, rightUPdirectionSTOPx, rightUPdirectionSTOPy + 50, painter)
+            drawLine(rightUPcornerSTARTx, rightUPcornerSTARTy, rightUPdirectionSTOPx - long, rightUPdirectionSTOPy, painter)
+            drawLine(rightUPcornerSTARTx, rightUPcornerSTARTy, rightUPdirectionSTOPx, rightUPdirectionSTOPy + long, painter)
             //left down frame
-            drawLine(leftDOWNcornerSTARTx, leftDOWNcornerSTARTy, leftDOWNdirectionSTOPx + 50, leftDOWNdirectionSTOPy, painter)
-            drawLine(leftDOWNcornerSTARTx, leftDOWNcornerSTARTy, leftDOWNdirectionSTOPx, leftDOWNdirectionSTOPy - 50, painter)
+            drawLine(leftDOWNcornerSTARTx, leftDOWNcornerSTARTy, leftDOWNdirectionSTOPx + long, leftDOWNdirectionSTOPy, painter)
+            drawLine(leftDOWNcornerSTARTx, leftDOWNcornerSTARTy, leftDOWNdirectionSTOPx, leftDOWNdirectionSTOPy - long, painter)
             //right down frame
-            drawLine(rightDOWNcornerSTARTx, rightDOWNcornerSTARTy, rightDOWNdirectionSTOPx, rightDOWNdirectionSTOPy - 50, painter)
-            drawLine(rightDOWNcornerSTARTx, rightDOWNcornerSTARTy, rightDOWNdirectionSTOPx - 50, rightDOWNdirectionSTOPy, painter)
+            drawLine(rightDOWNcornerSTARTx, rightDOWNcornerSTARTy, rightDOWNdirectionSTOPx, rightDOWNdirectionSTOPy - long, painter)
+            drawLine(rightDOWNcornerSTARTx, rightDOWNcornerSTARTy, rightDOWNdirectionSTOPx - long, rightDOWNdirectionSTOPy, painter)
         }
     }
 }

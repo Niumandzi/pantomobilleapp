@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">panto</string>
+    <string name="guide_up">The hand must be in the selected area</string>
+    <string name="guide_down">Recognized text will appear here</string>
 </resources>

@@ -1,36 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".MainActivity">
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal|bottom"
-        android:orientation="vertical"
-        android:paddingLeft="46dp"
-        android:paddingRight="46dp"
-        android:paddingBottom="60dp">
+        android:layout_height="match_parent">
 
-        <com.niumandzi.panto.FrameView
+        <androidx.camera.view.PreviewView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="250dp"
-            android:layout_marginBottom="130dp" />
+            android:id="@+id/pv_camera"/>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:onClick="AboutActivityBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:background="@color/white"
-            android:layout_marginBottom="60dp"/>
+            android:layout_gravity="right"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"/>
 
-        <com.niumandzi.panto.ButtonView
-            android:id="@+id/mainButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="vertical"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="55dp">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textSize="17dp"
+                android:text="The hand must be in the selected area"
+                android:layout_marginBottom="6dp"/>
+
+            <com.niumandzi.panto.FrameView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- костыль -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:paddingBottom="2dp">
+
+                <TextView
+                    android:layout_width="281dp"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom|left"
+                    android:textSize="15dp"
+                    android:text="Recognized text will appear here"/>
+
+                <View
+                    android:onClick="TextActivityBtn"
+                    android:layout_width="18dp"
+                    android:layout_height="15dp"
+                    android:background="@color/white"
+                    android:layout_gravity="bottom|right"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/white"
+                android:layout_marginBottom="65dp"/>
+
+            <com.niumandzi.panto.ButtonView
+                android:id="@+id/btn_main"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="80dp"/>
+        </LinearLayout>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

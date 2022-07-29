@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 
-class ButtonView(
+class ButtonView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defaultAttrs:Int = 0
@@ -30,7 +30,6 @@ class ButtonView(
             val centerY = (height / 2).toFloat()
             val radius = (width / 2f)
             val radius1 = (0.4 * radius).toFloat()
-            drawColor(Color.BLACK)
             drawCircle(centerX, centerY, radius, painter)
             drawCircle(centerX, centerY, radius1, painter1)
         }
